@@ -25,64 +25,87 @@
 
 <body>
   <header>
+    <h1 class="sr-only">Tip Calculator App</h1>
     <div class="logo">
       <img src="images/logo.svg" alt="logo" />
 
   </header>
+
   <main class="main">
 
     <div class="calc-wrapper">
       <form action="#" class="form">
-        <label for="bill">Bill</label>
-        <div class="input-icon">
-          <div class="icon"><img src="images/icon-dollar.svg" alt="icon-dollar" /></div>
-          
-        
-        <input type="number" name="bill" id="bill" /></div>
-
-
-        <label for="tip">Select Tip %</label>
-        <div class="tips">
-          <a href="#" class="tip-choice"><input type="checkbox" name="" id="" />5%</a>
-          <input type="checkbox" name="" id="" value="" />10%
-          <input type="checkbox" name="" id="" value="" />15%
-          <input type="checkbox" name="" id="" value="" />25%
-          <input type="checkbox" name="" id="" value="" />50%
-          <input type="checkbox" name="" id="" value="" />Custom
-
+        <div class="input-part">
+          <div class="bill-input">
+            <label for="bill" class="lbl">Bill</label>
+            <div class="input-icon">
+              <input type="number" name="bill" id="bill" value="0" />
+            </div>
+          </div>
+          <div class="select-tip-input">
+            <fieldset>
+              <legend>Select Tip %</legend>
+              <div class="tips">
+                <div class="tip">
+                  <input type="radio" id="val-5" name="tip" value="5" />
+                  <label for="val-5">5%</label>
+                </div>
+                <div class="tip">
+                  <input type="radio" id="val-10" name="tip" value="10" />
+                  <label for="val-10">10%</label>
+                </div>
+                <div class="tip">
+                  <input type="radio" id="val-15" name="tip" value="15" />
+                  <label for="val-15">15%</label>
+                </div>
+                <div class="tip">
+                  <input type="radio" id="val-25" name="tip" value="25" />
+                  <label for="val-25">25%</label>
+                </div>
+                <div class="tip">
+                  <input type="radio" id="val-50" name="tip" value="50" />
+                  <label for="val-50">50%</label>
+                </div>
+                <div class="tip custom p-0">
+                  <input type="radio" id="val-custom" name="tip" value="custom"/> 
+                  <label for="val-custom">Custom</label>
+                  <input type="number" class="hidden" name="tip" id="val-custom-number" value="0"/>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="number-people-input">
+            <label for="number-people" class="lbl">Number of People</label>
+            <span class="warn"></span>
+            <div class="input-icon">
+              <input type="number" name="people" id="people" value="0" />
+            </div>
+          </div>
         </div>
-        
-        <label for="number-people">Number of People</label>
-
-        <div class="input-icon">
-          <div class="icon"><img src="images/icon-person.svg" alt="icon-dollar" /></div><input type="number" name="people" id="people" /></div>
-    </form>
-
-
-    <div class="output">
-      <div class="output-results">
-        <div class="item">
-          <p>Tip Amount</p>
-          <span>/ person</span><span class="price">0.00</span>
+        <div class="output-part">
+          <div class="output-results">
+            <div class="item">
+              <p>Tip Amount</p>
+              <span>/ person</span><span class="price">0.00</span>
+            </div>
+            <div class="item">
+              <p>Total</p>
+              <span>/ person</span><span class="price">0.00</span>
+            </div>
+          </div>
+          <button type="reset">Reset</button>
         </div>
-        <div class="item">
-          <p>Total</p>
-          <span>/ person</span><span class="price">0.00</span>
-        </div>
-      </div>
-      <button type="reset">Reset</button>
-    </div>
-    </div>
+      </form>
     </div>
 
   </main>
 
 
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by
-    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your
-      Name Here</a>.
-  </div>
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
+      href="https://github.com/olha-bochevar">Olha Bochevar</a>.
+  </footer>
   <script src="script.js"></script>
 </body>
 

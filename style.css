@@ -68,6 +68,15 @@ textarea,
 select {
   font: inherit;
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input:active, input:focus, input:focus-visible {
+  outline: none;
+}
+
 
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
@@ -79,6 +88,16 @@ select {
   }
 }
 
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
 /*-------------------------------------------------------------------------------*/
 
 :root {
@@ -94,65 +113,208 @@ select {
 body {
   font-family: "Space Mono", "Lucida Sans", "Lucida Sans Regular",
     "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-size: 24px;
+    
     background-color: var(--light-grayish-cyan);
-}
-
-main.main{
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
+
+/* header */
 
 header {
     width: 100%;
-    padding: 100px 0;
+    padding: 5em 0 5em 0;
 }
 header > .logo {
-    width: 100px;
+    width: 5em;
+    max-width: 5em;
+    min-width: 120px;
     margin: auto;
 }
-
+header > .logo > img {
+  display: block;
+  margin: 0 auto;
+}
+/* main part */
+main.main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
 .calc-wrapper{
     width: 65%;
+    max-width: 90%;
+    height: auto;
     border-radius: 15px;
     background-color: var(--white);
-    padding: 40px;
-    display: flex;
+    padding: 1.8em;
+    font-size: 1rem;
+    margin: 0 auto;
+}
+form.form {
+  display: flex;
+  margin: 0 -1em;
 }
 
-.form, .output {
+.input-part, .output-part {
     display: flex;
     flex-direction: column;
     flex: 50%;
+    padding: 0 1em;
+}
+
+.input-part {
+  color: var(--dark-grayish-cyan);
+  padding: 1em;
+}
+.input-part > :not(:last-of-type) {
+  margin-bottom: 2.5em;
 }
 .input-icon {
-    display: flex;
-}
-.input-icon > .icon img {
-    object-fit: contain;
-    display: inline;
-}
-.input-icon > .icon {
-    padding-left: 10px;
-}
-.input-icon > input {
-    border:none;
+  margin-top: 0.5em;
+  display: flex;
 }
 .input-icon > .icon , .input-icon > input {
-    background-color: var(--very-light-grayish-cyan);
-    padding: 5px;
+  background-color: var(--very-light-grayish-cyan);
+  padding: 0.2em 1em;
+}
+.input-icon > .icon {
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px 0 0 7px;
+}
+.input-icon > .icon > img {
+  max-width: 100%;
 }
 
+.input-icon > input {
 
+  background-color: var(--very-light-grayish-cyan);
+  padding-left:30px;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: end;
+  border: none;
+  color: var(--grayish-cyan);
+  font-size: 1.5rem;
+  border-radius: 7px;
+}
+
+.bill-input > .input-icon > input {
+  background: url(images/icon-dollar.svg) no-repeat scroll 14px 14px;
+  background-color: var(--very-light-grayish-cyan);
+}
+.number-people-input > .input-icon > input {
+  background: url(images/icon-person.svg) no-repeat scroll 14px 14px;
+  background-color: var(--very-light-grayish-cyan);
+}
+.input-icon > input:focus {
+  outline: 2px solid var(--primary-color);
+}
+/* tips part */
+
+.select-tip-input > fieldset > legend {
+  display: block;
+  margin-bottom: 0.5em;
+}
+.select-tip-input > fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.select-tip-input > fieldset > .tips {
+  font-size: 1.5rem;
+}
 .tips {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5em;
 }
+.tip {
+  position: relative;
+  padding: 0.2em 1em;
+}
+.tip > input {
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.tip > label {
+  width: 100%;
+  height: 100%;
+  background-color: var(--very-dark-cyan);
+  color: var(--white);
+  font-size: 1.4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tip > input:checked +  label {
+  background-color: var(--primary-color);
+  color: var(--very-dark-cyan);
+}
+
+
+.tip > label:hover, .output-part > button:hover  {
+  background-color: #9FE8DF;
+  color: var(--very-dark-cyan);
+}
+.tip.custom > label {
+  color: #3D6666;
+  background-color: var(--very-light-grayish-cyan);
+}
+
+
+/* classes for manipulating DOM */
+
+.input-tip-custom {
+  visibility: visible !important;
+  width: 100%;
+  border: none;
+  background-color: var(--white);
+  color: var(--very-dark-cyan);
+  outline: 2px solid var(--very-dark-cyan);
+  text-align: end;
+  padding-right: 0.3em;
+  border-radius: 5px;
+}
+.input-tip-custom:focus{
+  outline: 2px solid var(--primary-color);
+}
+/* 
+add this style
+.p-0 {
+  padding: 0.1em;
+} */
+.hidden {
+  display: none !important;
+}
+
+
+/* section number of people */
+.number-people-input {
+  position: relative;
+}
+.warn {
+  position: absolute;
+  right: 0;
+  color: #D16E5B;
+}
+
+
+
+
 
 
 .output {
@@ -166,7 +328,7 @@ header > .logo {
     flex: 1 1 auto;
 }
 
-.output > button {
+.output-part > button {
     background-color: var(--primary-color);
     color: var(--very-dark-cyan);
     text-transform: uppercase;
