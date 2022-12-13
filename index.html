@@ -45,7 +45,7 @@
             <div class="bill-input">
               <label for="bill" class="lbl">Bill</label>
               <div class="input-icon">
-                <input type="number" name="bill" id="bill" value="0" />
+                <input type="number" name="bill" id="bill" value="0" step=".01" required/>
               </div>
             </div>
             <div class="select-tip-input">
@@ -72,14 +72,16 @@
                     <input type="radio" id="val-50" name="tip" value="50" />
                     <label for="val-50">50%</label>
                   </div>
-                  <div class="tip custom p-0">
-                    <input
+                  <div class="tip custom">
+                    
+                      <input
                       type="radio"
                       id="val-custom"
                       name="tip"
-                      value="custom"
-                    />
-                    <label for="val-custom">Custom</label>
+                      value="custom" onclick="hide()"/>
+                      <label for="val-custom">Custom</label>
+                    
+                    
                     <input
                       type="number"
                       class="hidden"
@@ -95,7 +97,7 @@
               <label for="number-people" class="lbl">Number of People</label>
               <span class="warn"></span>
               <div class="input-icon">
-                <input type="number" name="people" id="people" value="0" />
+                <input type="number" name="people" id="people" value="0" min="1" required/>
               </div>
             </div>
           </div>
@@ -117,9 +119,10 @@
                   <span class="value">$0.00</span>
                 </div>
               </div>
-              <button type="reset" class="btn-reset">Reset</button>
+              <input type="reset" class="btn-reset"></input>
             </div>
           </div>
+          <input type="submit" value="submit" style="display: none;">
         </form>
       </div>
     </main>

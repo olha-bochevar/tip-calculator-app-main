@@ -270,9 +270,10 @@ form.form {
 }
 
 .tip > label:hover,
-.output-wrapper > button:hover {
+.output-wrapper > input:hover {
   background-color: #9fe8df;
   color: var(--very-dark-cyan);
+  cursor: pointer;
 }
 .tip.custom > label {
   color: #3d6666;
@@ -353,7 +354,7 @@ add this style
   align-self: flex-start;
   line-height: 0.7;
 }
-.output-wrapper > button {
+.output-wrapper > input {
   background-color: var(--primary-color);
   color: var(--very-dark-cyan);
   text-transform: uppercase;
