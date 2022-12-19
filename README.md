@@ -12,9 +12,6 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 
 
@@ -48,51 +45,73 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+1) A choice of tip is realized with using radio buttons (check of state 'check' and updating UI after change tip):
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<fieldset>
+  <legend>Select Tip %</legend>
+  <div class="tips" oninput="updateUI()">
+    <div class="tip">
+      <input type="radio" id="val-5" name="tip" value="5" />
+      <label for="val-5">5%</label>
+    </div>
+    <!-- the others divs -->
+    <div class="tip custom">
+        <input type="radio" id="val-custom" name="tip" value="custom" />
+        <label for="val-custom">Custom</label>
+        <input type="number" class="hidden" name="tip-custom" id="val-custom-number" value="0" />
+      </div>
+</fieldset>
 ```
+CSS styles are based on using property "visibility: hidden" on input[type="radio"]
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.tip>input {
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.tip>label {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tip>input:checked+label {
+  background-color: var(--primary-color);
+  color: var(--very-dark-cyan);
 }
 ```
+The change of Custom input[type="radio"] to Custom input[type="number"] is realised with checking state of radio (if Custom radio checked, then we add specific classes for target elements).
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+// change custom input 'radio' to 'number'
+function hideCustomRadio() {
+  if (customTip.checked) {
+    customTip.classList.add("hidden");
+    customTip.nextElementSibling.setAttribute("class", "hidden");
+    inputCustomTip.classList.remove("hidden");
+    inputCustomTip.classList.add("input-tip-custom");
+  }
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+2) A special difficulty was incorrect null styles for inputs. After deploying app it found out there is other look of paddings and border-radius on iPhone, hovewer Chrome DevTools with correct dimension didn`t show this problem.
+The problem was solved with adding the next styles for target input type:
+```css
+  input[type="reset"] {
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+In my opinion, it would be cool to make easy function "UpdateUI()" by splitting it into more small pieces.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
 
-### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**

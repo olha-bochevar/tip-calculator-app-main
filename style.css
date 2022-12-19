@@ -408,9 +408,9 @@ form.form {
   text-transform: uppercase;
   border: none;
   padding: 0.5em 0;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  border-radius: var(--input-border-radius);
+  -webkit-border-radius: var(--input-border-radius);
+  -moz-border-radius: var(--input-border-radius);
 }
 
 /* media querries*/
