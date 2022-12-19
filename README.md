@@ -85,7 +85,7 @@ CSS styles are based on using property "visibility: hidden" on input[type="radio
   color: var(--very-dark-cyan);
 }
 ```
-The change of Custom input[type="radio"] to Custom input[type="number"] is realised with checking state of radio (if Custom radio checked, then we add specific classes for target elements).
+The change of Custom input[type="radio"] to Custom input[type="number"] is realized with checking state of radio (if Custom radio checked, then we add specific classes for target elements).
 ```js
 // change custom input 'radio' to 'number'
 function hideCustomRadio() {
