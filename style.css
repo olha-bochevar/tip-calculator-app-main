@@ -80,7 +80,10 @@ input:focus,
 input:focus-visible {
   outline: none;
 }
-
+input {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+}
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -393,9 +396,7 @@ form.form {
 
 .output-wrapper> .btn-reset {
   width: 100%;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  
 }
 .output-wrapper> .btn-reset > input {
   font-size: 1.3rem;
@@ -406,7 +407,9 @@ form.form {
   text-transform: uppercase;
   border: none;
   padding: 0.5em 0;
-  
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
 }
 
 /* media querries*/
