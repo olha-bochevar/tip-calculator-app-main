@@ -55,7 +55,7 @@ Users should be able to:
       <input type="radio" id="val-5" name="tip" value="5" />
       <label for="val-5">5%</label>
     </div>
-    <!-- the others divs -->
+    <!-- the other divs -->
     <div class="tip custom">
         <input type="radio" id="val-custom" name="tip" value="custom" />
         <label for="val-custom">Custom</label>
