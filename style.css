@@ -363,6 +363,8 @@ form.form {
   border: none;
   padding: 0.5em 0;
   border-radius: var(--input-border-radius);
+  -webkit-border-radius: var(--input-border-radius);
+-moz-border-radius: var(--input-border-radius);
   font-size: 1.3rem;
 }
 
