@@ -109,6 +109,7 @@ input:focus-visible {
   --light-grayish-cyan: hsl(185, 41%, 84%);
   --very-light-grayish-cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
+  --warn-color: #d16e5b;
   --input-border-radius: 5px;
 }
 
@@ -220,6 +221,9 @@ form.form {
   outline: 2px solid var(--primary-color);
   color: var(--very-dark-cyan);
 }
+.warn-focused{
+  outline: 2px solid var(--warn-color);
+}
 /* tips part */
 
 .select-tip-input > fieldset > legend {
@@ -286,6 +290,9 @@ form.form {
   visibility: visible !important;
   width: 100%;
   border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: var(--white);
   color: var(--very-dark-cyan);
   outline: 2px solid var(--very-dark-cyan);
@@ -296,11 +303,6 @@ form.form {
 .input-tip-custom:focus {
   outline: 2px solid var(--primary-color);
 }
-/* 
-add this style
-.p-0 {
-  padding: 0.1em;
-} */
 .hidden {
   display: none !important;
 }
@@ -315,7 +317,7 @@ add this style
 .warn {
   position: absolute;
   right: 0;
-  color: #d16e5b;
+  color: var(--warn-color);
 }
 
 /* output part */

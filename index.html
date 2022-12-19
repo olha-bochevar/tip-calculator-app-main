@@ -45,13 +45,13 @@
             <div class="bill-input">
               <label for="bill" class="lbl">Bill</label>
               <div class="input-icon">
-                <input type="number" name="bill" id="bill" value="0" step=".01" required/>
+                <input type="number" name="bill" id="bill" value="0" step=".01" required  oninput="updateUI()"/>
               </div>
             </div>
             <div class="select-tip-input">
               <fieldset>
                 <legend>Select Tip %</legend>
-                <div class="tips">
+                <div class="tips" oninput="updateUI()">
                   <div class="tip">
                     <input type="radio" id="val-5" name="tip" value="5" />
                     <label for="val-5">5%</label>
@@ -78,14 +78,14 @@
                       type="radio"
                       id="val-custom"
                       name="tip"
-                      value="custom" onclick="hide()"/>
+                      value="custom"  />
                       <label for="val-custom">Custom</label>
                     
                     
                     <input
                       type="number"
                       class="hidden"
-                      name="tip"
+                      name="tip-custom"
                       id="val-custom-number"
                       value="0"
                     />
@@ -97,7 +97,9 @@
               <label for="number-people" class="lbl">Number of People</label>
               <span class="warn"></span>
               <div class="input-icon">
-                <input type="number" name="people" id="people" value="0" min="1" required/>
+                <input type="number" name="people" id="people" value="0" min="1" 
+               oninput="updateUI()"
+                required/>
               </div>
             </div>
           </div>
@@ -122,7 +124,7 @@
               <input type="reset" class="btn-reset"></input>
             </div>
           </div>
-          <input type="submit" value="submit" style="display: none;">
+        <!--   <input type="submit" value="submit" style="display: none;"> -->
         </form>
       </div>
     </main>
