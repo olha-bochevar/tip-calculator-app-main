@@ -210,18 +210,18 @@ form.form {
 }
 
 .bill-input > .input-icon > input {
-  background: url(images/icon-dollar.svg) no-repeat scroll 14px 14px;
+  background: url(images/icon-dollar.svg) no-repeat scroll 0.6em 0.6em;
   background-color: var(--very-light-grayish-cyan);
 }
 .number-people-input > .input-icon > input {
-  background: url(images/icon-person.svg) no-repeat scroll 14px 14px;
+  background: url(images/icon-person.svg) no-repeat scroll 0.6em 0.6em;
   background-color: var(--very-light-grayish-cyan);
 }
 .input-icon > input:focus {
   outline: 2px solid var(--primary-color);
   color: var(--very-dark-cyan);
 }
-.warn-focused{
+.warn-focused {
   outline: 2px solid var(--warn-color);
 }
 /* tips part */
@@ -368,28 +368,36 @@ form.form {
 
 /* media querries*/
 
-@media (max-width:1100px) {
-  html{
+@media (max-width: 1100px) {
+  html {
     font-size: 15px;
   }
 }
-@media (max-width:992px) {
-  html{
+@media (max-width: 992px) {
+  html {
     font-size: 13px;
+  }
+  .calc-wrapper {
+    width: 80%;
+  }
+  .bill-input > .input-icon > input,
+  .number-people-input > .input-icon > input {
+    background-position-x: 0.5em;
+    background-position-y: 0.5em;
   }
 }
 
-@media (max-width:800px) {
-  html{
+@media (max-width: 800px) {
+  html {
     font-size: 11px;
   }
 }
 
-@media (max-width:678px) {
-  html{
+@media (max-width: 678px) {
+  html {
     font-size: 16px;
   }
-  header{
+  header {
     padding: 3em 0;
   }
   .calc-wrapper {
@@ -404,12 +412,17 @@ form.form {
   .input-part {
     margin-bottom: 1.2em;
   }
+  .bill-input > .input-icon > input,
+  .number-people-input > .input-icon > input {
+    background-position-x: 0.6em;
+    background-position-y: 0.6em;
+  }
   .output-items {
     margin-bottom: 3em;
   }
 }
-@media (max-width:485px) {
-  html{
+@media (max-width: 485px) {
+  html {
     font-size: 15px;
   }
   .tips {
@@ -423,13 +436,15 @@ form.form {
     font-size: 2.5rem;
   }
 }
-@media (max-width:345px) {
-  .warn{
+@media (max-width: 345px) {
+  .warn {
     position: static;
     display: block;
   }
+  .output-wrapper {
+    padding: 3.5em 1em 2em;
+  }
 }
-
 
 /* footer */
 
