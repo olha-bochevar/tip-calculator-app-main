@@ -80,9 +80,10 @@ input:focus,
 input:focus-visible {
   outline: none;
 }
-input {
+input[type="reset"] {
+  appearance: none;
+  -webkit-appearance: none;
   border-radius: 0;
-  -webkit-border-radius: 0;
 }
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
