@@ -361,7 +361,7 @@ form.form {
   color: var(--very-dark-cyan);
   text-transform: uppercase;
   border: none;
-  padding: 10px 0;
+  padding: 0.5em 0;
   border-radius: var(--input-border-radius);
   font-size: 1.3rem;
 }
