@@ -274,7 +274,7 @@ form.form {
 }
 
 .tip > label:hover,
-.output-wrapper > input:hover {
+.output-wrapper > .btn-reset:hover {
   background-color: #9fe8df;
   color: var(--very-dark-cyan);
   cursor: pointer;
@@ -356,14 +356,14 @@ form.form {
   align-self: flex-start;
   line-height: 0.7;
 }
-.output-wrapper > input {
+.output-wrapper > .btn-reset {
   background-color: var(--primary-color);
   color: var(--very-dark-cyan);
   text-transform: uppercase;
   border: none;
   padding: 10px 0;
   border-radius: var(--input-border-radius);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 /* media querries*/
@@ -381,7 +381,7 @@ form.form {
 
 @media (max-width:800px) {
   html{
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 
@@ -408,7 +408,7 @@ form.form {
     margin-bottom: 3em;
   }
 }
-@media (max-width:385px) {
+@media (max-width:485px) {
   html{
     font-size: 15px;
   }

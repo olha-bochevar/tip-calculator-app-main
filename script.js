@@ -14,8 +14,6 @@ const outputTipAmount = form.querySelector("#tip-amount span.value");
 const outputTotal = form.querySelector("#total span.value");
 const warn = form.querySelector(".warn");
 
-
-
 // FUNCTIONS
 
 // reset values for inputs
@@ -31,6 +29,17 @@ inputNumOfPeople.addEventListener("click", () => {
 inputCustomTip.addEventListener("click", () => {
   resetValues(inputCustomTip);
 });
+
+// show warning about number of people
+function showWarn() {
+  warn.textContent = `Can't be zero`;
+  inputNumOfPeople.classList.add("warn-focused");
+}
+// hide warning about number of people
+function hideWarn() {
+  warn.textContent = "";
+  inputNumOfPeople.classList.remove("warn-focused");
+}
 
 // reset form by clicking button 'Reset'
 btnReset.addEventListener("click", (e) => {
@@ -56,7 +65,7 @@ const getTotalSumPerPerson = (bill, tip, numOfPeople) => {
 const updateUI = () => {
   // get values bill & number of person
   let bill = Number(form.bill.value.trim());
-let numberOfPeople = Number(form.people.value.trim());
+  let numberOfPeople = Number(form.people.value.trim());
 
   // get tip
   let tip;
@@ -72,10 +81,10 @@ let numberOfPeople = Number(form.people.value.trim());
 
   // check number of people & output message about mistake
   if (numberOfPeople < 1) {
-   showWarn();
+    showWarn();
   } else {
     hideWarn();
-  }; 
+  }
 
   // get & output results
   const sumTipAmountPerPerson = getTipAmountPerPerson(
@@ -115,13 +124,3 @@ function showCustomRadio() {
     inputCustomTip.classList.add("hidden");
   }
 }
-
-function showWarn() {
-    warn.textContent = `Can't be zero`;
-    inputNumOfPeople.classList.add("warn-focused");
-};
-
-function hideWarn() {
-    warn.textContent = "";
-    inputNumOfPeople.classList.remove("warn-focused");
-};
